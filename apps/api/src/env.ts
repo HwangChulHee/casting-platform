@@ -19,6 +19,11 @@ const envSchema = z.object({
    * 서버는 공개키만 있으면 된다.
    */
   SUPABASE_URL: z.url(),
+  /**
+   * Storage signed URL 발급에 필요하다. 이 키는 RLS를 우회하므로
+   * 절대 프론트로 나가면 안 된다 — 그래서 NEXT_PUBLIC_ 접두사가 없다.
+   */
+  SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
 });
 
 const parsed = envSchema.safeParse(process.env);

@@ -1,10 +1,12 @@
 import { auditionRouter } from "./routers/audition.js";
 import { meRouter } from "./routers/me.js";
+import { profileRouter } from "./routers/profile.js";
 import { router } from "./trpc.js";
 
 export const appRouter = router({
   audition: auditionRouter,
   me: meRouter,
+  profile: profileRouter,
 });
 
 /**

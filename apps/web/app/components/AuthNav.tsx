@@ -20,6 +20,7 @@ export function AuthNav() {
   return (
     <nav className="nav">
       <Link href="/auditions">공고</Link>
+      <Link href="/me/profile">내 프로필</Link>
       <Link href="/login" data-testid="nav-auth">
         {session ? session.user.email : "로그인"}
       </Link>
