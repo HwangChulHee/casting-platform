@@ -1,4 +1,10 @@
 import {
+  APPLICATION_STATUSES,
+  AUDITION_STATUSES,
+  GENDERS,
+  USER_ROLES,
+} from "@casting/shared";
+import {
   index,
   integer,
   pgEnum,
@@ -10,18 +16,17 @@ import {
 } from "drizzle-orm/pg-core";
 
 /* ─────────────────────────────────────────────
- * enum — PostgreSQL의 실제 enum 타입으로 생성된다.
+ * enum — 값의 원본은 @casting/shared에 있고, 여기서는 그걸 받아
+ * PostgreSQL의 실제 enum 타입으로 만든다. DB와 zod가 어긋날 수 없다.
  * text + CHECK 대신 enum을 쓰면 잘못된 값이 DB 레벨에서 막힌다.
  * ───────────────────────────────────────────── */
-export const userRoleEnum = pgEnum("user_role", ["actor", "admin"]);
-export const genderEnum = pgEnum("gender", ["male", "female", "other"]);
-export const auditionStatusEnum = pgEnum("audition_status", ["open", "closed"]);
-export const applicationStatusEnum = pgEnum("application_status", [
-  "submitted",
-  "reviewed",
-  "accepted",
-  "rejected",
-]);
+export const userRoleEnum = pgEnum("user_role", USER_ROLES);
+export const genderEnum = pgEnum("gender", GENDERS);
+export const auditionStatusEnum = pgEnum("audition_status", AUDITION_STATUSES);
+export const applicationStatusEnum = pgEnum(
+  "application_status",
+  APPLICATION_STATUSES,
+);
 
 /* ─────────────────────────────────────────────
  * users

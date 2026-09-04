@@ -123,7 +123,7 @@ application_status_history (선택)  application_id FK, from_status, to_status, 
 
 - [x] 1. 모노레포 뼈대: Turborepo + pnpm, packages/config, 빈 apps 3개. `pnpm turbo build` 성공
 - [x] 2. packages/db: Drizzle 스키마 + migrate. Supabase에 테이블 생성 확인
-- [ ] 3. packages/shared: zod 스키마, enum
+- [x] 3. packages/shared: zod 스키마, enum
 - [ ] 4. apps/api: Express + tRPC + /health. `audition.list` 공개 procedure (캐시 없이)
 - [ ] 5. apps/web: tRPC client + React Query provider, 공고 목록 페이지 → 첫 E2E
 - [ ] 6. Supabase Auth: 로그인 UI, JWT 미들웨어, protectedProcedure, users upsert
