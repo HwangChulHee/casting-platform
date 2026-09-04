@@ -13,6 +13,12 @@ const envSchema = z.object({
   DATABASE_URL: z.string().min(1, "DATABASE_URL이 필요합니다."),
   // 개발 중엔 Next.js dev 서버, 배포 후엔 Vercel 도메인
   WEB_ORIGIN: z.string().default("http://localhost:3000"),
+  /**
+   * Supabase 프로젝트 URL. JWT 검증에 쓸 JWKS와 issuer를 여기서 유도한다.
+   * 서명 비밀키는 필요 없다 — Supabase가 ES256(비대칭)으로 서명하므로
+   * 서버는 공개키만 있으면 된다.
+   */
+  SUPABASE_URL: z.url(),
 });
 
 const parsed = envSchema.safeParse(process.env);

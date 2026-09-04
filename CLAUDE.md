@@ -126,7 +126,7 @@ application_status_history (선택)  application_id FK, from_status, to_status, 
 - [x] 3. packages/shared: zod 스키마, enum
 - [x] 4. apps/api: Express + tRPC + /health. `audition.list` 공개 procedure (캐시 없이)
 - [x] 5. apps/web: tRPC client + React Query provider, 공고 목록 페이지 → 첫 E2E
-- [ ] 6. Supabase Auth: 로그인 UI, JWT 미들웨어, protectedProcedure, users upsert
+- [x] 6. Supabase Auth: 로그인 UI, JWT 미들웨어, protectedProcedure, users upsert
 - [ ] 7. 프로필 CRUD + Storage 업로드
 - [ ] 8. 공고 CRUD + adminProcedure
 - [ ] 9. 지원하기 + UNIQUE 제약 에러 처리

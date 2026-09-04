@@ -161,3 +161,63 @@ h1 {
 .meta dd {
   margin: 0;
 }
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.nav a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.nav a:last-child {
+  margin-left: auto;
+  color: var(--accent);
+}
+
+.sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.form {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 380px;
+}
+
+.form label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.form input {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  font: inherit;
+}
+
+.meta.col {
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+code {
+  font-size: 0.8rem;
+  background: var(--border);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}

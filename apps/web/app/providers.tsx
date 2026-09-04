@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
 import { useState, type ReactNode } from "react";
 
+import { supabase } from "@/lib/supabase/client";
 import { TRPCProvider } from "@/lib/trpc";
 
 /**
@@ -36,6 +37,16 @@ export function Providers({ children }: { children: ReactNode }) {
          */
         httpBatchLink({
           url: `${process.env.NEXT_PUBLIC_API_URL}/trpc`,
+          /**
+           * 요청마다 실행된다. 토큰을 모듈 로드 시점에 한 번 읽어 고정하면
+           * 로그인/로그아웃/자동 갱신 후에 낡은 토큰을 계속 보내게 된다.
+           * getSession()은 만료가 임박하면 알아서 refresh까지 처리한다.
+           */
+          async headers() {
+            const { data } = await supabase.auth.getSession();
+            const token = data.session?.access_token;
+            return token ? { Authorization: `Bearer ${token}` } : {};
+          },
         }),
       ],
     }),
