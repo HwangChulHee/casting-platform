@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "casting-platform next app",
+  "extends": "./base.json",
+  "compilerOptions": {
+    // 브라우저 API를 쓰므로 DOM 타입이 필요하다.
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    // 번들러(Turbopack)가 해석하므로 NodeNext가 아니라 Bundler.
+    // 그래서 상대경로 import에 .js 확장자를 붙이지 않는다.
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    // 빌드 산출물은 next가 만든다. tsc는 타입만 본다.
+    "noEmit": true,
+    "declaration": false,
+    "allowJs": true,
+    "incremental": true,
+    "resolveJsonModule": true,
+    "plugins": [{ "name": "next" }]
+  }
+}

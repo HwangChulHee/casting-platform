@@ -2,15 +2,29 @@
   "name": "@casting/web",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
     "typecheck": "tsc -p tsconfig.json --noEmit",
-    "clean": "rm -rf dist .next .turbo"
+    "clean": "rm -rf .next dist .turbo"
+  },
+  "dependencies": {
+    "@casting/api": "workspace:*",
+    "@casting/shared": "workspace:*",
+    "@tanstack/react-query": "^5.102.8",
+    "@trpc/client": "^11.18.0",
+    "@trpc/tanstack-react-query": "^11.18.0",
+    "next": "^16.3.4",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@casting/config": "workspace:*",
     "@types/node": "^22.15.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "dotenv": "^17.4.2",
     "typescript": "^5.9.3"
   }
 }

@@ -4,6 +4,12 @@
   "private": true,
   "type": "module",
   "main": "dist/index.js",
+  "exports": {
+    "./router": {
+      "types": "./dist/trpc/router.d.ts",
+      "default": "./dist/trpc/router.js"
+    }
+  },
   "scripts": {
     "dev": "tsx watch --env-file=../../.env src/index.ts",
     "start": "node --env-file=../../.env dist/index.js",
