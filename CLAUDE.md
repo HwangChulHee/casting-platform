@@ -16,7 +16,7 @@
 ## 1. 환경
 
 - WSL2 (Ubuntu), 작업 경로: `/home/hch/casting-platform`
-- Node 22 LTS, pnpm 9+
+- Node 24 LTS (`.nvmrc`), pnpm 11 (corepack — `corepack enable`)
 - 사용자가 직접 준비할 것: Supabase 프로젝트(URL, anon key, service role key, DB connection string), Redis(로컬 docker 또는 Upstash), OpenAI API key
 - 비밀값은 `.env` 파일에만. 절대 커밋하지 않는다. `.env.example`을 항상 최신으로 유지.
 
@@ -121,8 +121,8 @@ application_status_history (선택)  application_id FK, from_status, to_status, 
 
 ## 8. 구현 순서 (체크포인트 단위로 진행, 각 단계 완료 후 사용자 확인 받기)
 
-- [ ] 1. 모노레포 뼈대: Turborepo + pnpm, packages/config, 빈 apps 3개. `pnpm turbo build` 성공
-- [ ] 2. packages/db: Drizzle 스키마 + migrate. Supabase에 테이블 생성 확인
+- [x] 1. 모노레포 뼈대: Turborepo + pnpm, packages/config, 빈 apps 3개. `pnpm turbo build` 성공
+- [x] 2. packages/db: Drizzle 스키마 + migrate. Supabase에 테이블 생성 확인
 - [ ] 3. packages/shared: zod 스키마, enum
 - [ ] 4. apps/api: Express + tRPC + /health. `audition.list` 공개 procedure (캐시 없이)
 - [ ] 5. apps/web: tRPC client + React Query provider, 공고 목록 페이지 → 첫 E2E

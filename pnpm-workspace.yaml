@@ -1,3 +1,11 @@
 packages:
   - "apps/*"
   - "packages/*"
+
+allowBuilds:
+  esbuild: set this to true or false
+
+# drizzle-kit이 내부적으로 esbuild 바이너리를 쓴다.
+# pnpm은 기본적으로 의존성의 postinstall을 막으므로 명시적으로 허용한다.
+onlyBuiltDependencies:
+  - esbuild
